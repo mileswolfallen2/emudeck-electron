@@ -645,17 +645,6 @@ function CopyGamesPage() {
             Next
           </BtnSimple>
         )}
-        {statusCopyGames === 'final' &&
-          installFrontends.deckyromlauncher.status && (
-            <BtnSimple
-              css="btn-simple--2"
-              type="button"
-              aria="Go Next"
-              onClick={() => navigate('/hotkeys')}
-            >
-              Next
-            </BtnSimple>
-          )}
         {statusCopyGames === true && (
           <BtnSimple
             css="btn-simple--1"
