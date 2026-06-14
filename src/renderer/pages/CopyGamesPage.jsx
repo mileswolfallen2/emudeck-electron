@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from 'context/globalContext';
+import Video from 'components/atoms/Video/Video';
 import Wrapper from 'components/molecules/Wrapper/Wrapper';
 import Main from 'components/organisms/Main/Main';
 import EmuModal from 'components/molecules/EmuModal/EmuModal';
@@ -555,7 +556,7 @@ function CopyGamesPage() {
                     Game Mode
                   </p>
 
-                  <Iframe src="https://www.youtube-nocookie.com/embed/BsqWFHPp5UU?autoplay=1&playlist=BsqWFHPp5UU&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
+                  <Video src="https://f005.backblazeb2.com/file/emudeck-assets/videos/BsqWFHPp5UU-SRM.mp4" />
                 </>
               )}
               {installFrontends.esde.status && (
@@ -565,17 +566,7 @@ function CopyGamesPage() {
                     Library. Finish the installation and then go back to gaming
                     mode, look for ES-DE in the Non Steam Games tab
                   </p>
-                  <Iframe src="https://www.youtube-nocookie.com/embed/twNE8i3aI0g?autoplay=1&playlist=twNE8i3aI0g&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
-                </>
-              )}
-              {installFrontends.deckyromlauncher.status && (
-                <>
-                  <p className="lead">
-                    We've added EmulationStation DE (ES-DE) to your Steam
-                    Library. Finish the installation and then go back to gaming
-                    mode, look for ES-DE in the Non Steam Games tab
-                  </p>
-                  <Iframe src="https://www.youtube-nocookie.com/embed/aVZuoIfIdkU?autoplay=1&playlist=aVZuoIfIdkU&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
+                  <Video src="https://f005.backblazeb2.com/file/emudeck-assets/videos/twNE8i3aI0g-ESDE.mp4" />
                 </>
               )}
             </Main>
@@ -590,7 +581,7 @@ function CopyGamesPage() {
                     Library. Finish the installation and then go back to gaming
                     mode, look for ES-DE in the Non Steam Games tab
                   </p>
-                  <Iframe src="https://www.youtube-nocookie.com/embed/twNE8i3aI0g?autoplay=1&playlist=twNE8i3aI0g&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
+                  <Video src="https://f005.backblazeb2.com/file/emudeck-assets/videos/twNE8i3aI0g-ESDE.mp4" />
                 </>
               )}
             </Main>
@@ -605,7 +596,7 @@ function CopyGamesPage() {
                     Game Mode
                   </p>
 
-                  <Iframe src="https://www.youtube-nocookie.com/embed/BsqWFHPp5UU?autoplay=1&playlist=BsqWFHPp5UU&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
+                  <Video src="https://f005.backblazeb2.com/file/emudeck-assets/videos/BsqWFHPp5UU-SRM.mp4" />
                 </>
               )}
               {installFrontends.esde.status && (
@@ -615,7 +606,7 @@ function CopyGamesPage() {
                     Library. Finish the installation and then go back to gaming
                     mode, look for ES-DE in the Non Steam Games tab
                   </p>
-                  <Iframe src="https://www.youtube-nocookie.com/embed/twNE8i3aI0g?autoplay=1&playlist=twNE8i3aI0g&loop=1&controls=0&mute=1&rel=0&modestbranding=1" />
+                  <Video src="https://f005.backblazeb2.com/file/emudeck-assets/videos/twNE8i3aI0g-ESDE.mp4" />
                 </>
               )}
             </Main>

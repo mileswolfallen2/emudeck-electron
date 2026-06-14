@@ -7,7 +7,6 @@ import WelcomePage from 'pages/WelcomePage';
 import DeviceSelectorPage from 'pages/DeviceSelectorPage';
 import EmulatorSelectorPage from 'pages/EmulatorSelectorPage';
 import FrontendSelectorPage from 'pages/FrontendSelectorPage';
-import AndroidFrontendSelectorPage from 'pages/AndroidFrontendSelectorPage';
 import ParserSelectorPage from 'pages/ParserSelectorPage';
 import EmulatorConfigurationPage from 'pages/EmulatorConfigurationPage';
 import RomStoragePage from 'pages/RomStoragePage';
@@ -28,8 +27,6 @@ import ESDEThemePage from 'pages/ESDEThemePage';
 import PowerToolsPage from 'pages/PowerToolsPage';
 import PowerControlsPage from 'pages/PowerControlsPage';
 import EmuDeckyPage from 'pages/EmuDeckyPage';
-import DeckyRomLauncherPage from 'pages/DeckyRomLauncherPage';
-import DeckyRomLauncherInstallPage from 'pages/DeckyRomLauncherInstallPage';
 import CheckBiosPage from 'pages/CheckBiosPage';
 
 import CHDToolPage from 'pages/CHDToolPage';
@@ -67,15 +64,6 @@ import EndPage from 'pages/EndPage';
 import ErrorPage from 'pages/ErrorPage';
 import Hotkeys from 'pages/Hotkeys';
 import FinishPage from 'pages/FinishPage';
-
-import AndroidRomStoragePage from 'pages/AndroidRomStoragePage';
-import AndroidEmulatorSelectorPage from 'pages/AndroidEmulatorSelectorPage';
-import AndroidRABezelsPage from 'pages/AndroidRABezelsPage';
-import AndroidOwnAPKPage from 'pages/AndroidOwnAPKPage';
-import AndroidEndPage from 'pages/AndroidEndPage';
-import AndroidWelcomePage from 'pages/AndroidWelcomePage';
-import AndroidSetupPage from 'pages/AndroidSetupPage';
-import AndroidFinishPage from 'pages/AndroidFinishPage';
 
 import { GlobalContext } from './context/globalContext';
 
@@ -147,123 +135,6 @@ export default function App() {
     cloudSyncStatus: false,
     sudoPass: 'Decky!',
     language: 'en',
-    android: {
-      bezels: true,
-      second: false,
-      installEmus: {
-        ra: {
-          id: 'ra',
-          status: true,
-          name: 'RetroArch',
-        },
-        dolphin: {
-          id: 'dolphin',
-          status: true,
-          name: 'Dolphin',
-        },
-        ppsspp: {
-          id: 'ppsspp',
-          status: true,
-          name: 'PPSSPP',
-        },
-        azahar: {
-          id: 'azahar',
-          status: true,
-          name: 'Azahar',
-        },
-        nethersx2: {
-          id: 'nethersx2',
-          status: true,
-          name: 'NetherSX2',
-        },
-        yuzu: {
-          id: 'yuzu',
-          status: false,
-          name: 'Yuzu',
-        },
-        // vita3k: {
-        //   id: 'vita3k',
-        //   status: false,
-        //   name: 'Vita3K',
-        // },
-        scummvm: {
-          id: 'scummvm',
-          status: true,
-          name: 'ScummVM',
-        },
-      },
-      overwriteConfigEmus: {
-        ra: {
-          id: 'ra',
-          status: true,
-          name: 'RetroArch',
-        },
-        dolphin: {
-          id: 'dolphin',
-          status: true,
-          name: 'Dolphin',
-        },
-        ppsspp: {
-          id: 'ppsspp',
-          status: true,
-          name: 'PPSSPP',
-        },
-        azahar: {
-          id: 'azahar',
-          status: true,
-          name: 'Azahar',
-        },
-        aethersx2: {
-          id: 'pcsx2',
-          status: true,
-          name: 'AetherSX2',
-        },
-        yuzu: {
-          id: 'yuzu',
-          status: false,
-          name: 'Yuzu',
-        },
-        eden: {
-          id: 'eden',
-          status: false,
-          name: 'Eden',
-        },
-        citron: {
-          id: 'citron',
-          status: false,
-          name: 'Citron',
-        },
-        pegasus: {
-          id: 'pegasus',
-          status: true,
-          name: 'Pegasus',
-        },
-        vita3k: {
-          id: 'vita3k',
-          status: true,
-          name: 'Vita3K',
-        },
-        scummvm: {
-          id: 'scummvm',
-          status: true,
-          name: 'ScummVM',
-        },
-      },
-      installFrontends: {
-        pegasus: {
-          id: 'pegasus',
-          status: true,
-          name: 'Pegasus',
-          desc: 'Free but you need to scrape your artwork using Skrapper on your PC',
-        },
-        esde: {
-          id: 'esde',
-          status: false,
-          name: 'ES-DE',
-          desc: 'You need to bring your own ESDE apk as it is a paid app. Get it at http://patreon.com/es_de',
-        },
-      },
-    },
     achievements: {
       user: '',
       pass: '',
@@ -539,12 +410,6 @@ export default function App() {
         name: 'Pegasus',
         desc: 'Add this launcher to your Steam Library. Recommended for big collections. You need to run EmulationStation parsers to show artwork in Pegasus Themes',
       },
-      deckyromlauncher: {
-        id: 'deckyromlauncher',
-        status: true,
-        name: 'Retro Library',
-        desc: 'A separate Retro Library that does not interfiere with your Games Library. All games and artwork are detected automatically.',
-      },
       steam: {
         id: 'steam',
         status: false,
@@ -697,17 +562,6 @@ export default function App() {
           <Route exact path="/power-tools" element={<PowerToolsPage />} />
           <Route exact path="/power-controls" element={<PowerControlsPage />} />
           <Route exact path="/decky-controls" element={<EmuDeckyPage />} />
-          <Route
-            exact
-            path="/decky-rom-launcher"
-            element={<DeckyRomLauncherPage />}
-          />
-          <Route
-            exact
-            path="/decky-rom-launcher-install"
-            element={<DeckyRomLauncherInstallPage />}
-          />
-
           <Route exact path="/help" element={<HelpPage />} />
           <Route exact path="/early-access" element={<EarlyAccessPage />} />
 
@@ -718,10 +572,6 @@ export default function App() {
 
           <Route exact path="/emulators" element={<ManageEmulatorsPage />}>
             <Route path=":emulator" element={<ManageEmulatorsPage />} />
-          </Route>
-
-          <Route exact path="/android-setup" element={<AndroidSetupPage />}>
-            <Route path=":emulator" element={<AndroidSetupPage />} />
           </Route>
 
           <Route path="/emulators-detail" element={<EmulatorsDetailPage />}>
@@ -765,39 +615,6 @@ export default function App() {
           <Route exact path="/end" element={<EndPage />} />
           <Route exact path="/hotkeys" element={<Hotkeys />} />
           <Route exact path="/finish" element={<FinishPage />} />
-
-          <Route
-            exact
-            path="/android-welcome"
-            element={<AndroidWelcomePage />}
-          />
-          <Route
-            exact
-            path="/android-rom-storage"
-            element={<AndroidRomStoragePage />}
-          />
-          <Route
-            exact
-            path="/android-frontend-selector"
-            element={<AndroidFrontendSelectorPage />}
-          />
-          <Route
-            exact
-            path="/android-emulator-selector"
-            element={<AndroidEmulatorSelectorPage />}
-          />
-          <Route
-            exact
-            path="/android-RA-bezels"
-            element={<AndroidRABezelsPage />}
-          />
-          <Route
-            exact
-            path="/android-own-apk"
-            element={<AndroidOwnAPKPage />}
-          />
-          <Route exact path="/android-end" element={<AndroidEndPage />} />
-          <Route exact path="/android-finish" element={<AndroidFinishPage />} />
         </Routes>
       </Router>
     </GlobalContext.Provider>
