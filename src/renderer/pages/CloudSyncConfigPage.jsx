@@ -13,6 +13,7 @@ import CloudSyncConfig from 'components/organisms/Wrappers/CloudSyncConfig';
 import ProgressBar from 'components/atoms/ProgressBar/ProgressBar';
 import PatreonLogin from 'components/organisms/PatreonLogin/PatreonLogin';
 import { Img } from 'getbasecore/Atoms';
+import { useFetchCond } from 'hooks/useFetchCond';
 import {
   iconSuccess,
   iconDanger,
@@ -56,46 +57,69 @@ function CloudSyncPageConfig() {
 
   const ipcChannel = window.electron.ipcRenderer;
 
+  const emudeckCloudLogin = useFetchCond('https://cloud.emudeck.com/login.php');
+
   const cloudSyncSet = (item) => {
     let modalData;
-    if (item === 'Emudeck-GDrive') {
-      modalData = {
-        active: true,
-        header: <span className="h4">Warning</span>,
-        body: (
-          <p>
-            If you are using a free Google Drive account we don't recomended to
-            use it with CloudSync since Google will throttle your connection,
-            making CloudSync really really slow.
-          </p>
-        ),
-        css: 'emumodal--sm',
-      };
-    }
+    if (item === 'Emudeck-cloud-selector') {
+      const patreonToken = localStorage.getItem('patreon_token');
+      emudeckCloudLogin.post({ token: patreonToken }).then((data) => {
+        console.log({ state });
+        const emudeckCloudType = data.cloud;
+        let emudeckCloudProvider;
+        if (data.cloud == 'cloud1') {
+          emudeckCloudProvider = 'Emudeck-cloud';
+        } else {
+          emudeckCloudProvider = 'Emudeck-cloud2';
+        }
 
-    if (item === 'Emudeck-SMB' || item === 'Emudeck-SFTP') {
-      modalData = {
-        active: true,
-        header: <span className="h4">Warning</span>,
-        body: (
-          <p>
-            You might need to create an emudeck folder in the root of your
-            storage before setting up CloudSync
-          </p>
-        ),
-        css: 'emumodal--sm',
-      };
-    }
+        alert(emudeckCloudProvider);
 
-    setState({
-      ...state,
-      cloudSync: item,
-    });
-    setStatePage({
-      ...statePage,
-      showLoginButton: false,
-      modal: modalData,
-    });
+        setState({
+          ...state,
+          cloudSync: emudeckCloudProvider,
+        });
+      });
+    } else {
+      if (item === 'Emudeck-GDrive') {
+        modalData = {
+          active: true,
+          header: <span className="h4">Warning</span>,
+          body: (
+            <p>
+              If you are using a free Google Drive account we don't recomended
+              to use it with CloudSync since Google will throttle your
+              connection, making CloudSync to fail.
+            </p>
+          ),
+          css: 'emumodal--sm',
+        };
+      }
+
+      if (item === 'Emudeck-SMB' || item === 'Emudeck-SFTP') {
+        modalData = {
+          active: true,
+          header: <span className="h4">Warning</span>,
+          body: (
+            <p>
+              You might need to create an emudeck folder in the root of your
+              storage before setting up CloudSync
+            </p>
+          ),
+          css: 'emumodal--sm',
+        };
+      }
+
+      setState({
+        ...state,
+        cloudSync: item,
+      });
+      setStatePage({
+        ...statePage,
+        showLoginButton: false,
+        modal: modalData,
+      });
+    }
   };
 
   const closeModal = () => {
