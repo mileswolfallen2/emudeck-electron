@@ -63,21 +63,24 @@ function CloudSyncPageConfig() {
     let modalData;
     if (item === 'Emudeck-cloud-selector') {
       const patreonToken = localStorage.getItem('patreon_token');
+      const cloudSyncUser = patreonToken.split('|||')[0];
+
       emudeckCloudLogin.post({ token: patreonToken }).then((data) => {
-        console.log({ state });
         const emudeckCloudType = data.cloud;
         let emudeckCloudProvider;
+        let cloudSyncPrefix = 'pe';
         if (data.cloud == 'cloud1') {
           emudeckCloudProvider = 'Emudeck-cloud';
+          cloudSyncPrefix = 'cs' + cloudSyncUser;
         } else {
           emudeckCloudProvider = 'Emudeck-cloud2';
+          cloudSyncPrefix = 'emudeck-saves/cs' + cloudSyncUser;
         }
-
-        alert(emudeckCloudProvider);
 
         setState({
           ...state,
           cloudSync: emudeckCloudProvider,
+          cs_user: cloudSyncPrefix,
         });
       });
     } else {
@@ -89,7 +92,7 @@ function CloudSyncPageConfig() {
             <p>
               If you are using a free Google Drive account we don't recomended
               to use it with CloudSync since Google will throttle your
-              connection, making CloudSync to fail.
+              connection, making CloudSync really really slow.
             </p>
           ),
           css: 'emumodal--sm',
@@ -113,6 +116,7 @@ function CloudSyncPageConfig() {
       setState({
         ...state,
         cloudSync: item,
+        cs_user: '',
       });
       setStatePage({
         ...statePage,
