@@ -118,7 +118,7 @@ function CheckUpdatePage() {
       delete settingsStorage.overwriteConfigEmus.lime3ds;
       delete settingsStorage.installEmus.ares;
       delete settingsStorage.overwriteConfigEmus.ares;
-      delete settingsStorage.android;
+      //delete settingsStorage.android;
       delete settingsStorage.installFrontends;
       const installEmusStored = settingsStorage.installEmus;
       // const installFrontendsStored = settingsStorage.installFrontends;
