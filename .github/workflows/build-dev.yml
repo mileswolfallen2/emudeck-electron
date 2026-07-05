@@ -67,7 +67,7 @@ jobs:
         run: |
           npm run postinstall
           npm run build
-          npm exec electron-builder -- --publish always --linux --x64 && npm exec electron-builder -- --publish always --win --x64
+          npm exec electron-builder -- --publish always --linux --x64 --arm64 && npm exec electron-builder -- --publish always --win --x64
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
