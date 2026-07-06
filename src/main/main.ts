@@ -393,7 +393,8 @@ ipcMain.on('emudeck', async (event, command) => {
     bashCommand = bashCommand.replaceAll('&&', ';');
     preCommand = `powershell -ExecutionPolicy Bypass -command "& { cd $env:USERPROFILE ; cd AppData ; cd Roaming  ; cd EmuDeck ; cd backend ; cd functions ; . ./all.ps1 ; ${bashCommand} "}`;
   } else {
-    preCommand = `. ~/.config/EmuDeck/backend/functions/all.sh && ${bashCommand}`;
+    const emudeckHome = process.env.EMUDECK_HOME || '~/.config/EmuDeck';
+    preCommand = `. ${emudeckHome}/backend/functions/all.sh && ${bashCommand}`;
   }
 
   return exec(`${preCommand}`, shellType, (error, stdout, stderr) => {
@@ -427,7 +428,8 @@ ipcMain.on('emudeck-nolog', async (event, command) => {
   if (os.platform().includes('win32')) {
     preCommand = `powershell -ExecutionPolicy Bypass -command "& { cd $env:USERPROFILE ; cd AppData ; cd Roaming  ; cd EmuDeck ; cd backend ; cd functions ; . ./all.ps1 ; ${bashCommand} "}`;
   } else {
-    preCommand = `. ~/.config/EmuDeck/backend/functions/all.sh && ${bashCommand}`;
+    const emudeckHome = process.env.EMUDECK_HOME || '~/.config/EmuDeck';
+    preCommand = `. ${emudeckHome}/backend/functions/all.sh && ${bashCommand}`;
   }
 
   return exec(`${preCommand}`, shellType, (error, stdout, stderr) => {

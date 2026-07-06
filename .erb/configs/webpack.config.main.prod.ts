@@ -77,6 +77,8 @@ const configuration: webpack.Configuration = {
     __dirname: false,
     __filename: false,
   },
+
+
 };
 
 export default merge(baseConfig, configuration);

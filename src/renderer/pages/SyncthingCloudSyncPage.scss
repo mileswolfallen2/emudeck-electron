@@ -1,0 +1,445 @@
+.syncthing-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding-bottom: 2rem;
+}
+
+/* ---- Status Banner ---- */
+.syncthing-banner {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+
+.syncthing-banner__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.syncthing-banner__title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.syncthing-banner__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  &--running {
+    background: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+  }
+  &--stopped {
+    background: #f44336;
+    box-shadow: 0 0 8px rgba(244, 67, 54, 0.4);
+  }
+}
+
+.syncthing-banner__label {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-text-1);
+}
+
+.syncthing-banner__id {
+  font-size: 1.2rem;
+  font-family: monospace;
+  color: var(--color-text-2);
+  word-break: break-all;
+}
+
+.syncthing-banner__actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* ---- Two-column pairing grid ---- */
+.syncthing-pairing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+}
+
+.syncthing-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.syncthing-card__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.syncthing-card__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  &--lan {
+    background: rgba(110, 160, 198, 0.2);
+    color: #6ea0c6;
+  }
+  &--code {
+    background: rgba(153, 204, 51, 0.2);
+    color: #99cc33;
+  }
+}
+
+.syncthing-card__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-text-1);
+}
+
+.syncthing-card__desc {
+  font-size: 1.2rem;
+  color: var(--color-text-2);
+  line-height: 1.5;
+}
+
+.syncthing-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* ---- Peer list ---- */
+.syncthing-peer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.syncthing-peer-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(0, 0, 0, 0.24);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.2s;
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.syncthing-peer-item__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(110, 160, 198, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+}
+
+.syncthing-peer-item__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.syncthing-peer-item__name {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--color-text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.syncthing-peer-item__addr {
+  font-size: 1.1rem;
+  color: var(--color-text-2);
+  font-family: monospace;
+}
+
+.syncthing-peer-item__action {
+  flex-shrink: 0;
+}
+
+/* ---- Scanning indicator ---- */
+.syncthing-scanning {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-text-2);
+  font-size: 1.2rem;
+}
+
+.syncthing-scanning__dots {
+  display: flex;
+  gap: 4px;
+}
+
+.syncthing-scanning__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-2);
+  animation: syncthing-bounce 1.4s infinite both;
+  &:nth-child(1) { animation-delay: 0s; }
+  &:nth-child(2) { animation-delay: 0.16s; }
+  &:nth-child(3) { animation-delay: 0.32s; }
+}
+
+@keyframes syncthing-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 0.8; }
+}
+
+/* ---- Code pairing UI ---- */
+.syncthing-code-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.syncthing-code-actions {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.syncthing-code-divider {
+  color: var(--color-text-2);
+  font-size: 1.1rem;
+  padding: 0 0.4rem;
+}
+
+.syncthing-code-input-row {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.syncthing-code-input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border-radius: 30em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--color-text-1);
+  font-family: monospace;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  outline: none;
+  transition: border-color 0.2s;
+  &:focus {
+    border-color: rgba(153, 204, 51, 0.5);
+  }
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.syncthing-code-display {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1.2rem 1.6rem;
+  text-align: center;
+  border: 1px solid rgba(153, 204, 51, 0.3);
+}
+
+.syncthing-code-display__code {
+  font-family: monospace;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #99cc33;
+  text-shadow: 0 0 20px rgba(153, 204, 51, 0.3);
+}
+
+.syncthing-code-display__label {
+  font-size: 1.1rem;
+  color: var(--color-text-2);
+  margin-top: 0.4rem;
+}
+
+.syncthing-code-status {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+  color: var(--color-text-2);
+}
+
+.syncthing-code-status__spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #99cc33;
+  animation: syncthing-spin 0.8s linear infinite;
+}
+
+@keyframes syncthing-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Empty state ---- */
+.syncthing-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 2rem;
+  color: var(--color-text-2);
+  text-align: center;
+}
+
+.syncthing-empty__icon {
+  font-size: 2.4rem;
+  opacity: 0.4;
+}
+
+.syncthing-empty__text {
+  font-size: 1.2rem;
+}
+
+/* ---- Device table ---- */
+.syncthing-device-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.syncthing-device-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.6rem;
+  background: rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.syncthing-device-row__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  &--online {
+    background: #4caf50;
+    box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+  }
+  &--offline {
+    background: #666;
+  }
+}
+
+.syncthing-device-row__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.syncthing-device-row__name {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--color-text-1);
+}
+
+.syncthing-device-row__meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1.1rem;
+  color: var(--color-text-2);
+}
+
+.syncthing-device-row__progress-wrap {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.syncthing-device-row__progress {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.syncthing-device-row__progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #6ea0c6, #99cc33);
+  transition: width 1s ease;
+}
+
+.syncthing-device-row__progress-text {
+  font-size: 1rem;
+  color: var(--color-text-2);
+  margin-top: 0.2rem;
+  text-align: right;
+}
+
+.syncthing-device-row__actions {
+  flex-shrink: 0;
+}
+
+/* ---- Sync stats card ---- */
+.syncthing-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.syncthing-stat {
+  background: rgba(0, 0, 0, 0.24);
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.syncthing-stat__value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text-1);
+}
+
+.syncthing-stat__label {
+  font-size: 1.1rem;
+  color: var(--color-text-2);
+  margin-top: 0.2rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .syncthing-pairing-grid {
+    grid-template-columns: 1fr;
+  }
+  .syncthing-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -38,7 +38,6 @@ import UpdateEmusPage from 'pages/UpdateEmusPage';
 
 import CloudSyncPage from 'pages/CloudSyncPage';
 import CloudSyncConfigPage from 'pages/CloudSyncConfigPage';
-import SyncthingCloudSyncPage from 'pages/SyncthingCloudSyncPage';
 import GameModePage from 'pages/GameModePage';
 
 import ChangeLogPage from 'pages/ChangeLogPage';
@@ -595,7 +594,6 @@ export default function App() {
           <Route exact path="/cloud-sync" element={<CloudSyncPage />}>
             <Route path=":type" element={<CloudSyncPage />} />
           </Route>
-          <Route exact path="/syncthing-cloud-sync" element={<SyncthingCloudSyncPage />} />
           <Route exact path="/game-mode" element={<GameModePage />}>
             <Route path=":type" element={<GameModePage />} />
           </Route>
