@@ -112,6 +112,7 @@
     }
   },
   "dependencies": {
+    "bittorrent-dht": "^11.0.12",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^6.3.0",
@@ -119,11 +120,13 @@
     "i18next-browser-languagedetector": "^7.2.1",
     "isomorphic-git": "^1.25.6",
     "lsb-release": "^0.1.0",
+    "multicast-dns": "^7.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.3.1",
     "react-konami-code": "^2.3.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",

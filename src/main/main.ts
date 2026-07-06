@@ -1309,6 +1309,241 @@ ipcMain.on('run-app', async (event, appPath) => {
   });
 });
 
+//
+// Syncthing & P2P Pairing (mDNS + DHT)
+//
+const DHT = require('bittorrent-dht');
+const crypto = require('crypto');
+const dgram = require('dgram');
+const nacl = require('tweetnacl');
+
+const dhtNodes: Record<string, any> = {};
+let mdnsSocket: any = null;
+const MDNS_PORT = 54322;
+const MDNS_ADDR = '239.255.255.250';
+
+function generatePairingCode(): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 7; i++) {
+    if (i === 3) code += '-';
+    code += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return code;
+}
+
+// Derive ed25519 keypair from pairing code via SHA256 seed
+function keypairFromCode(code: string): any {
+  const seed = crypto.createHash('sha256').update('emudeck-pair-' + code).digest();
+  return nacl.sign.keyPair.fromSeed(seed);
+}
+
+// SHA1 for DHT keys
+function dhtKey(publicKey: Buffer, salt: string): Buffer {
+  const saltBuf = Buffer.from(salt);
+  return crypto.createHash('sha1').update(Buffer.concat([publicKey, saltBuf])).digest();
+}
+
+// Start LAN discovery via UDP multicast
+ipcMain.on('syncthing-discover-start', async (event, command) => {
+  const deviceId = command[0] || '';
+
+  if (mdnsSocket) {
+    mdnsSocket.close();
+    mdnsSocket = null;
+  }
+
+  mdnsSocket = dgram.createSocket({ type: 'udp4', reuseAddr: true });
+
+  mdnsSocket.on('error', (err: any) => {
+    console.error('mdns error', err);
+  });
+
+  mdnsSocket.on('message', (msg: Buffer, rinfo: any) => {
+    try {
+      const data = JSON.parse(msg.toString());
+      if (data.type === 'emudeck-syncthing' && data.deviceId && data.deviceId !== deviceId) {
+        mainWindow?.webContents.send('syncthing-peer-found', {
+          deviceId: data.deviceId,
+          hostname: data.hostname || rinfo.address,
+          address: rinfo.address,
+        });
+      }
+    } catch (_) { /* ignore malformed */ }
+  });
+
+  mdnsSocket.bind(MDNS_PORT, () => {
+    try {
+      mdnsSocket?.addMembership(MDNS_ADDR);
+    } catch (_) { /* non-critical */ }
+    mdnsSocket?.setBroadcast(true);
+
+    if (deviceId) {
+      const announce = setInterval(() => {
+        if (!mdnsSocket) { clearInterval(announce); return; }
+        const msg = JSON.stringify({
+          type: 'emudeck-syncthing',
+          deviceId,
+          hostname: os.hostname(),
+        });
+        mdnsSocket?.send(msg, 0, msg.length, MDNS_PORT, MDNS_ADDR);
+      }, 5000);
+      (mdnsSocket as any)._announceInterval = announce;
+    }
+  });
+
+  event.reply('syncthing-discover-start', 'ok');
+});
+
+ipcMain.on('syncthing-discover-stop', async (event) => {
+  if (mdnsSocket) {
+    if ((mdnsSocket as any)._announceInterval) {
+      clearInterval((mdnsSocket as any)._announceInterval);
+    }
+    mdnsSocket.close();
+    mdnsSocket = null;
+  }
+  event.reply('syncthing-discover-stop', 'ok');
+});
+
+// Create pairing code (host) — publish device ID to DHT via BEP 44 mutable put
+ipcMain.on('syncthing-create-code', async (event, command) => {
+  const deviceId = command[0] || '';
+  const code = generatePairingCode();
+  const kp = keypairFromCode(code);
+  const joinKey = dhtKey(Buffer.from(kp.publicKey), 'emudeck-join');
+  let replied = false;
+
+  const dht = new DHT();
+  dhtNodes[code] = { dht, replied: false };
+
+  dht.on('ready', () => {
+    const data = JSON.stringify({ deviceId, hostname: os.hostname(), ts: Date.now() });
+
+    // Mutable put: sign the data with ed25519
+    dht.put({
+      k: Buffer.from(kp.publicKey),
+      salt: Buffer.from('emudeck-host'),
+      seq: 0,
+      v: Buffer.from(data),
+      sign: (signData: Buffer) => Buffer.from(nacl.sign.detached(signData, kp.secretKey)),
+    }, (err: any, _hash: Buffer) => {
+      if (err) {
+        event.reply('syncthing-code-created', { code, error: err.message });
+        return;
+      }
+      // Poll for join reply
+      let attempts = 0;
+      const poll = setInterval(() => {
+        attempts++;
+        dht.get(joinKey, (_err2: any, res: any) => {
+          if (res && res.v) {
+            replied = true;
+            clearInterval(poll);
+            try {
+              const peer = JSON.parse(res.v.toString());
+              event.reply('syncthing-code-created', {
+                code,
+                peerDeviceId: peer.deviceId,
+                peerHostname: peer.hostname,
+                paired: true,
+              });
+            } catch (_) {
+              event.reply('syncthing-code-created', {
+                code,
+                peerDeviceId: res.v.toString(),
+                paired: true,
+              });
+            }
+            setTimeout(() => { dht.destroy(); }, 1000);
+          }
+        });
+        if (attempts > 60 && !replied) {
+          clearInterval(poll);
+          event.reply('syncthing-code-created', { code, paired: false, timeout: true });
+          dht.destroy();
+        }
+      }, 5000);
+
+      event.reply('syncthing-code-created', { code, paired: false });
+    });
+  });
+
+  dht.listen();
+});
+
+// Join pairing code (joiner) — look up host's device ID in DHT via BEP 44
+ipcMain.on('syncthing-join-code', async (event, command) => {
+  const code = command[0] || '';
+  const deviceId = command[1] || '';
+  const kp = keypairFromCode(code);
+  const hostKey = dhtKey(Buffer.from(kp.publicKey), 'emudeck-host');
+
+  const dht = new DHT();
+
+  dht.on('ready', () => {
+    function doLookup() {
+      dht.get(hostKey, (err: any, res: any) => {
+        if (err || !res || !res.v) {
+          // Retry a few times with backoff
+          let retries = 0;
+            const retry = setInterval(() => {
+            retries++;
+            dht.get(hostKey, (_err2: any, res2: any) => {
+              if (res2 && res2.v) {
+                clearInterval(retry);
+                doStoreReply(res2.v);
+              }
+            });
+            if (retries > 30) {
+              clearInterval(retry);
+              event.reply('syncthing-code-joined', { error: 'Code not found or expired' });
+              dht.destroy();
+            }
+          }, 2000);
+          return;
+        }
+        doStoreReply(res.v);
+      });
+    }
+
+    function doStoreReply(hostData: any) {
+      const replyData = JSON.stringify({ deviceId, hostname: os.hostname(), ts: Date.now() });
+      dht.put({
+        k: Buffer.from(kp.publicKey),
+        salt: Buffer.from('emudeck-join'),
+        seq: 0,
+        v: Buffer.from(replyData),
+        sign: (signData: Buffer) => Buffer.from(nacl.sign.detached(signData, kp.secretKey)),
+      }, () => {
+        try {
+          const peer = JSON.parse(hostData.toString());
+          event.reply('syncthing-code-joined', {
+            peerDeviceId: peer.deviceId,
+            peerHostname: peer.hostname,
+          });
+        } catch (_) {
+          event.reply('syncthing-code-joined', { peerDeviceId: hostData.toString() });
+        }
+        setTimeout(() => { dht.destroy(); }, 1000);
+      });
+    }
+
+    doLookup();
+  });
+
+  dht.listen();
+});
+
+ipcMain.on('syncthing-cancel-code', async (event, command) => {
+  const code = command[0] || '';
+  if (dhtNodes[code]) {
+    dhtNodes[code].dht?.destroy();
+    delete dhtNodes[code];
+  }
+  event.reply('syncthing-cancel-code', 'cancelled');
+});
+
 const myWindow: any = null;
 // no second instances
 if (!gotTheLock) {
