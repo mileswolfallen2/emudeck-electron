@@ -193,7 +193,7 @@ function DeviceSelectorPage() {
               onClick={() => deviceSet('Steam OS Handheld')}
             >
               <img src={imgayaneokun} width="100" alt="Background" />
-              <span className="h6">SteamOS Handheld</span>
+              <span className="h6">Unix Handheld</span>
             </Card>
             <Card
               css={device === 'Linux PC' && 'is-selected'}

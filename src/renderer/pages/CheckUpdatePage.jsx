@@ -219,7 +219,7 @@ function CheckUpdatePage() {
               systemNameValue = 'Windows';
               break;
             case 'SteamOS':
-              systemNameValue = 'SteamOS';
+              systemNameValue = 'Unix';
               break;
             case 'ChimeraOS':
               systemNameValue = 'ChimeraOS';
@@ -281,7 +281,7 @@ function CheckUpdatePage() {
               systemNameValue = 'Windows';
               break;
             case 'SteamOS':
-              systemNameValue = 'SteamOS';
+              systemNameValue = 'Unix';
               break;
             case 'ChimeraOS':
               systemNameValue = 'ChimeraOS';
