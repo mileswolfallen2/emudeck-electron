@@ -511,6 +511,12 @@ function EmulatorsDetailPage() {
         status.replace('\n', '');
 
         if (status.includes('true')) {
+          if (system == 'win32') {
+            ipcChannel.sendMessage('emudeck', [
+              `start_menu_reset|||start_menu_reset`,
+            ]);
+          }
+
           const modalData = {
             active: true,
             header: <span className="h4">{code} success!</span>,
