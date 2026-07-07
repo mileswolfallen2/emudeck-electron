@@ -120,7 +120,7 @@ function ManageEmulatorsPage() {
     dom,
   } = statePage;
 
-  const { system, installEmus, installFrontends, branch, mode } = state;
+  const { system, device, installEmus, installFrontends, branch, mode } = state;
 
   const installEmusArray = Object.values(installEmus);
   const installFrontendsArray = Object.values(installFrontends);
@@ -342,7 +342,7 @@ function ManageEmulatorsPage() {
                   />
                 </div>
               )}
-              {system !== 'win32' && system !== 'darwin' && (
+              {system !== 'win32' && (
                 <div data-col-md="6">
                   <CardSettings
                     icon={iconPackage}
@@ -378,8 +378,9 @@ function ManageEmulatorsPage() {
                   return;
                 }
 
-                if (system === 'darwin') {
-                  if (item.id !== 'ra') {
+                if (device === 'Mac') {
+                  const macBlocklist = ['cemu','primehack','ryujinx','xemu','xenia','vita3k','azahar','model2','supermodel','shadps4','citron'];
+                  if (macBlocklist.includes(item.id)) {
                     return;
                   }
                 }
@@ -425,8 +426,9 @@ function ManageEmulatorsPage() {
                   return;
                 }
 
-                if (system === 'darwin') {
-                  if (item.id !== 'esde') {
+                if (device === 'Mac') {
+                  const macBlocklist = ['pegasus'];
+                  if (macBlocklist.includes(item.id)) {
                     return;
                   }
                 }

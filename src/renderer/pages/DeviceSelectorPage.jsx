@@ -165,16 +165,14 @@ function DeviceSelectorPage() {
       <Header title={t('DeviceSelectorPage.title')} />
       <p className="lead">{t('DeviceSelectorPage.description')}</p>
       <DeviceSelector data={data} onClick={deviceSet}>
-        {system === 'darwin' && (
-          <Card
-            css={device === 'Mac' && 'is-selected'}
-            onClick={() => deviceSet('Mac')}
-          >
-            <img src={imgmac} width="100" alt="Background" />
-            <span className="h6">Mac</span>
-          </Card>
-        )}
-        {system !== 'darwin' && system !== 'win32' && (
+        <Card
+          css={device === 'Mac' && 'is-selected'}
+          onClick={() => deviceSet('Mac')}
+        >
+          <img src={imgmac} width="100" alt="Background" />
+          <span className="h6">Mac</span>
+        </Card>
+        {system !== 'win32' && (
           <>
             <Card
               css={device === 'Steam Deck' && 'is-selected'}
