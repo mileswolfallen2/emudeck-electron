@@ -26,7 +26,10 @@ const { branchOG } = branchFile;
 const { shouldUseDarkColors } = nativeTheme;
 const os = require('os');
 const fs = require('fs');
-const lsbRelease = require('lsb-release');
+let lsbRelease: any;
+if (os.platform() === 'linux') {
+  lsbRelease = require('lsb-release');
+}
 let appDataPath = app.getPath('userData');
 
 if (os.platform().includes('darwin')) {
@@ -651,7 +654,7 @@ ipcMain.on('system-info-in', async (event) => {
     event.reply('system-info-out', fakeOS);
   }
 
-  if (os.platform() === 'linux') {
+  if (os.platform() === 'linux' && lsbRelease) {
     lsbRelease((_: any, data: any) => {
       if (data.distributorID) {
         event.reply('system-info-out', data.distributorID);
@@ -1262,9 +1265,13 @@ app.on('session-created', (session: any) => {
   console.log({ session });
 });
 ipcMain.on('open-folder', async (event, path) => {
-  const bashCommand = `xdg-open ${path}`;
+  let bashCommand;
+  if (os.platform().includes('darwin')) {
+    bashCommand = `open "${path}"`;
+  } else {
+    bashCommand = `xdg-open ${path}`;
+  }
   return exec(`${bashCommand}`, shellType, (error, stdout, stderr) => {
-    // event.reply('console', { backChannel });
     logCommand(bashCommand, error, stdout, stderr);
     event.reply('open-folder', stdout);
   });
