@@ -154,6 +154,7 @@ function DeckyRomLauncherInstallPage() {
     });
   }, []);
 
+  
   const nextPage = () => {
     if (installFrontends.pegasus.status && installFrontends.esde.status) {
       return 'esde-theme';
