@@ -118,7 +118,7 @@ function CheckDependenciesPage() {
             <strong>{url}</strong>
           </p>
           <p>
-            After that, restart EmuDeck, if the problem persists restart your
+            After that, restart OmniEmu, if the problem persists restart your
             device.
           </p>
         </>
@@ -162,9 +162,9 @@ function CheckDependenciesPage() {
           <>
             <Header title="Missing dependencies..." />
             <p className="lead">
-              Please install the following programs, EmuDeck needs them to work.
-              After that, restart EmuDeck, if the problem persists restart your
-              device.
+              Please install the following programs, OmniEmu needs them to work.
+After that, restart OmniEmu, if the problem persists restart your
+               device.
             </p>
           </>
         ))}

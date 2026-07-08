@@ -19,7 +19,7 @@
       "uninstall": "Desinstalar",
       "close": "Cerrar",
       "moreInfo": "Más información",
-      "sudo": "EmuDeck ha detectado que ya has establecido una contraseña de sudo, ingrésala a continuación.",
+      "sudo": "OmniEmu ha detectado que ya has establecido una contraseña de sudo, ingrésala a continuación.",
       "loading": "Cargando",
       "save": "Guardar",
       "both": "Ambos",
@@ -52,7 +52,7 @@
       "pegasusTheme": "Tema Pegasus",
       "featured:": "Featured",
       "otherSettings": "Otras Configuraciones",
-      "exclusiveTools": "Herramientas exclusivas de EmuDeck",
+      "exclusiveTools": "Herramientas exclusivas de OmniEmu",
       "thirdParty": "Herramientas de Terceros",
       "other": "Otras Cosas",
       "featured": "Destacados"
@@ -67,7 +67,7 @@
       },
       "updateEmus": {
         "title": "Actualiza tus Emuladores",
-        "description": "Actualiza tus emuladores directamente desde EmuDeck",
+        "description": "Actualiza tus emuladores directamente desde OmniEmu",
         "button": "Actualizar"
       },
       "modalResetTitle": "Restableciendo la configuración de Emuladores",
@@ -81,7 +81,7 @@
     },
     "QuickSettingsPage": {
       "title": "Configura tus ajustes",
-      "description": "Selecciona una opción para aplicarla automáticamente a tu sistema. No necesitas hacer una Actualización Personalizada de EmuDeck para aplicar estos ajustes.",
+      "description": "Selecciona una opción para aplicarla automáticamente a tu sistema. No necesitas hacer una Actualización Personalizada de OmniEmu para aplicar estos ajustes.",
       "notifBezels": "¡Ajuste de biseles actualizado!",
       "notifSNESRatio": "¡Relación de aspecto de SNES actualizada!",
       "notifCloudSync": "¡Estado de CloudSync actualizado!",
@@ -96,15 +96,15 @@
     },
     "AndroidEmulatorSelectorPage": {
       "title": "Emuladores y herramientas para Android",
-      "description": "Estos son los emuladores que EmuDeck instala en tu sistema. Los emuladores seleccionados serán instalados y actualizados a la última versión. Los emuladores deseleccionados no serán instalados ni actualizados."
+      "description": "Estos son los emuladores que OmniEmu instala en tu sistema. Los emuladores seleccionados serán instalados y actualizados a la última versión. Los emuladores deseleccionados no serán instalados ni actualizados."
     },
     "AndroidEndPage": {
       "title": "Preparando tu dispositivo Android...",
       "description": ""
     },
     "AndroidFinishPage": {
-      "title": "¡EmuDeck Android Instalado!",
-      "description": "Si todo salió bien, deberías ver tu Interfaz en tu dispositivo Android.<br/>Si no lo haces, por favor reinstala EmuDeck."
+      "title": "¡OmniEmu Android Instalado!",
+      "description": "Si todo salió bien, deberías ver tu Interfaz en tu dispositivo Android.<br/>Si no lo haces, por favor reinstala OmniEmu."
     },
     "AndroidFrontendSelectorPage": {
       "title": "Interfaz para Android",
@@ -112,11 +112,11 @@
     },
     "AndroidOwnAPKPage": {
       "title": "Trae tu propio APK",
-      "description": "¿Tienes otro emulador o quieres instalar ESDE?<br/>Coloca todos tus APK en tu carpeta de descargas y EmuDeck los instalará.<br/><strong>Por favor, no uses APKs pirateados.</strong>"
+      "description": "¿Tienes otro emulador o quieres instalar ESDE?<br/>Coloca todos tus APK en tu carpeta de descargas y OmniEmu los instalará.<br/><strong>Por favor, no uses APKs pirateados.</strong>"
     },
     "AndroidRABezelsPage": {
       "title": "Configurar biseles de juego",
-      "description": "Usa los biseles preconfigurados de EmuDeck para ocultar las barras negras verticales en juegos de 8 y 16 bits."
+      "description": "Usa los biseles preconfigurados de OmniEmu para ocultar las barras negras verticales en juegos de 8 y 16 bits."
     },
     "AndroidRomStoragePage": {
       "title": "Selecciona el Almacenamiento de ROM para tu Dispositivo Android",
@@ -184,7 +184,7 @@
       "description": ""
     },
     "CHDToolPage": {
-      "title": "Herramienta de Compresión EmuDeck",
+      "title": "Herramienta de Compresión OmniEmu",
       "description": "La Herramienta de Compresión es un script que busca en ciertas carpetas de ROM y comprime juegos hasta en un 70% de su tamaño de archivo original utilizando los formatos CHD, RVZ, Trimmed 3DS, XISO y 7Zip."
     },
     "CheckBiosPage": {
@@ -192,15 +192,15 @@
       "description": "Algunos juegos no se cargarán correctamente sin archivos BIOS en su lugar. Coloca tu BIOS en Emulation/bios y usa este Comprobador de BIOS para asegurarte de tener la BIOS correcta para tu sistema."
     },
     "CheckUpdatePage": {
-      "title": "EmuDeck está cargando...",
-      "backend": "Construyendo el backend de EmuDeck y ejecutando autodiagnósticos en segundo plano...",
+      "title": "OmniEmu está cargando...",
+      "backend": "Construyendo el backend de OmniEmu y ejecutando autodiagnósticos en segundo plano...",
       "checking": {
         "title": "Buscando actualizaciones...",
         "description": "Por favor, espera mientras comprobamos si hay una nueva versión disponible..."
       },
       "updating": {
         "title": "¡Actualizando!",
-        "description": "EmuDeck se reiniciará tan pronto como termine la actualización. Aguanta firme."
+        "description": "OmniEmu se reiniciará tan pronto como termine la actualización. Aguanta firme."
       },
       "found": {
         "title": "¡Actualización encontrada!",
@@ -209,7 +209,7 @@
       },
       "error": {
         "title": "Ooopsie",
-        "description": "Parece que hay un problema al descargar el backend. Por favor, reinicia EmuDeck después de comprobar que tu red funciona correctamente."
+        "description": "Parece que hay un problema al descargar el backend. Por favor, reinicia OmniEmu después de comprobar que tu red funciona correctamente."
       }
     },
     "CloudSyncConfigPage": {
@@ -222,7 +222,7 @@
       "description": "Selecciona tu tipo preferido de guardado en la nube."
     },
     "ConfirmationPage": {
-      "title": "Esto es lo que EmuDeck hará",
+      "title": "Esto es lo que OmniEmu hará",
       "description": ""
     },
     "ControllerLayoutPage": {
@@ -235,18 +235,18 @@
     },
     "DeviceSelectorPage": {
       "title": "Selecciona tu dispositivo",
-      "description": "EmuDeck adapta la instalación para hardware diferente. Cada dispositivo tendrá su propia configuración, emuladores y biseles preconfigurados."
+      "description": "OmniEmu adapta la instalación para hardware diferente. Cada dispositivo tendrá su propia configuración, emuladores y biseles preconfigurados."
     },
     "EarlyAccessPage": {
-      "title": "Ayúdanos apoyando a EmuDeck",
+      "title": "Ayúdanos apoyando a OmniEmu",
       "description": "¡Dona en Patreon y ayúdanos a crecer y mejorar! Como miembro de nuestra comunidad, recibirás soporte individualizado y acceso anticipado a nuestras últimas características, algunas exclusivas solo para mecenas.",
       "eaTier": {
         "description": "Obtén acceso a las últimas características y aplicaciones antes que nadie, esto incluye soporte exclusivo y nuevas características para SteamOS, Windows, MacOS y Android en el futuro.",
         "list": "<li>- Acceso anticipado</li><li>- Soporte general</li><li>- CloudSync (Sincroniza tus partidas guardadas en Mac, Windows o Linux)</li><li>- Comunidad privada en Discord</li>"
       },
       "fanTier": {
-        "description": "Realmente amas lo que hago, y te agradezco por eso. Esta contribución ayudará a EmuDeck a comprar nuevos dispositivos y establecer optimizaciones personalizadas para otros sistemas.",
-        "list": "<li>- Las mismas características que Early Access y</li><li>- Derechos de voto, ¡formemos juntos el futuro de EmuDeck!</li>"
+        "description": "Realmente amas lo que hago, y te agradezco por eso. Esta contribución ayudará a OmniEmu a comprar nuevos dispositivos y establecer optimizaciones personalizadas para otros sistemas.",
+        "list": "<li>- Las mismas características que Early Access y</li><li>- Derechos de voto, ¡formemos juntos el futuro de OmniEmu!</li>"
       }
     },
     "EmuDeckyPage": {
@@ -259,7 +259,7 @@
     },
     "EmulatorConfigurationPage": {
       "title": "Configuraciones de Emuladores y Herramientas",
-      "description": "EmuDeck optimizará y configurará los emuladores durante esta instalación. Los emuladores seleccionados tendrán sus configuraciones restablecidas y actualizadas a los valores predeterminados de EmuDeck. Los emuladores deseleccionados no serán modificados y EmuDeck respetará tus configuraciones (no recomendado)."
+      "description": "OmniEmu optimizará y configurará los emuladores durante esta instalación. Los emuladores seleccionados tendrán sus configuraciones restablecidas y actualizadas a los valores predeterminados de OmniEmu. Los emuladores deseleccionados no serán modificados y OmniEmu respetará tus configuraciones (no recomendado)."
     },
     "EmulatorResolutionPage": {
       "title": "Resolución del Emulador",
@@ -290,9 +290,9 @@
       "title": "¿Qué queda?",
       "line1": "Ahora que has colocado tus archivos en su lugar adecuado y seleccionado un frontend, puede que te estés preguntando, ¿qué queda?",
       "line2": "¡Simplemente puedes volver al Modo de Juego y disfrutar de los juegos retro!",
-      "line3": "Sin embargo, EmuDeck contiene una gran cantidad de características para que las explores. Puedes querer usar la 'Herramienta de Compresión' para comprimir tus ROMs y ahorrar espacio, o usar el 'Servicio en la Nube' para añadir tus servicios de transmisión favoritos a tu frontend preferido.",
+      "line3": "Sin embargo, OmniEmu contiene una gran cantidad de características para que las explores. Puedes querer usar la 'Herramienta de Compresión' para comprimir tus ROMs y ahorrar espacio, o usar el 'Servicio en la Nube' para añadir tus servicios de transmisión favoritos a tu frontend preferido.",
       "line4": "Hay mucho que explorar y descubrir en la aplicación, pero por ahora, tu incorporación está completa,",
-      "line5": "los desarrolladores de EmuDeck esperan sinceramente que disfrutes de tu experiencia"
+      "line5": "los desarrolladores de OmniEmu esperan sinceramente que disfrutes de tu experiencia"
     },
     "FrontendSelectorPage": {
       "title": "Frontends para {{device}}",
@@ -316,7 +316,7 @@
     },
     "MigrationPage": {
       "title": "Migrar tu instalación",
-      "description": "Esta utilidad moverá tu instalación de EmuDeck, con tus ROMs intactas, al destino seleccionado, así como actualizará las rutas de tu biblioteca de Steam."
+      "description": "Esta utilidad moverá tu instalación de OmniEmu, con tus ROMs intactas, al destino seleccionado, así como actualizará las rutas de tu biblioteca de Steam."
     },
     "ParserSelectorPage": {
       "title": "Analizadores para Steam Rom Manager"
@@ -367,7 +367,7 @@
       "description": "Tu directorio de ROMs se organizará dentro de una carpeta de Emulación en el directorio seleccionado.",
       "modalErrorDetecting": "Se produjo un error al detectar tu almacenamiento...",
       "modalErrorWritable": "Se seleccionó un directorio no escribible, por favor, elige otro...",
-      "modalError": "Hubo un error, por favor, reinicia EmuDeck..."
+      "modalError": "Hubo un error, por favor, reinicia OmniEmu..."
     },
     "Shaders2DPage": {
       "title": "Configurar Shader CRT para Juegos Clásicos 2D",
@@ -382,26 +382,26 @@
       "description": "El Shader LCD simula las antiguas pantallas LCD de matriz de sistemas portátiles."
     },
     "StoreFrontPage": {
-      "title": "Tienda de EmuDeck"
+      "title": "Tienda de OmniEmu"
     },
     "UninstallPage": {
-      "title": "Desinstalar EmuDeck",
-      "description": "La utilidad de desinstalación de EmuDeck solo debe usarse si tienes la intención de eliminar EmuDeck de tu sistema. Si tienes problemas, ejecuta un Restablecimiento Personalizado, soluciona problemas específicos de herramientas o emuladores, o visita el Discord o Reddit de EmuDeck para obtener soporte adicional."
+      "title": "Desinstalar OmniEmu",
+      "description": "La utilidad de desinstalación de OmniEmu solo debe usarse si tienes la intención de eliminar OmniEmu de tu sistema. Si tienes problemas, ejecuta un Restablecimiento Personalizado, soluciona problemas específicos de herramientas o emuladores, o visita el Discord o Reddit de OmniEmu para obtener soporte adicional."
     },
     "UpdateEmusPage": {
       "title": "Actualizar tus Emuladores y Herramientas",
-      "description": "Los emuladores y herramientas se pueden instalar de múltiples maneras. EmuDeck instala algunos emuladores y herramientas como Flatpaks desde la Tienda Discover. Otros se descargan directamente desde el sitio web del desarrollador como AppImages o Binarios. Algunos son Ejecutables de Windows, descargados y ejecutados a través de Proton."
+      "description": "Los emuladores y herramientas se pueden instalar de múltiples maneras. OmniEmu instala algunos emuladores y herramientas como Flatpaks desde la Tienda Discover. Otros se descargan directamente desde el sitio web del desarrollador como AppImages o Binarios. Algunos son Ejecutables de Windows, descargados y ejecutados a través de Proton."
     },
     "WelcomePage": {
-      "title": "Bienvenido a EmuDeck para {{systemName}}",
+      "title": "Bienvenido a OmniEmu para {{systemName}}",
       "description": "Selecciona cómo deseas configurar tu dispositivo",
       "errorModal": {
         "title": "Error al detectar tu Sistema Operativo",
         "description": "<p>Haz clic en el botón Cerrar para intentarlo de nuevo</p><p>Si el problema persiste, contáctanos en Discord: https://discord.com/invite/b9F7GpXtFP</p>"
       },
       "easy": "Este modo instala y configura automáticamente tu dispositivo con nuestras configuraciones recomendadas para que puedas empezar a jugar de inmediato. Recomendado si eres nuevo en la emulación.",
-      "custom": "Este modo te permite personalizar la instalación de EmuDeck. Configura relaciones de aspecto, bordes, filtros, RetroAchievements, emuladores, frontends y más. Recomendado para usuarios avanzados.",
-      "android": "Instala EmuDeck (beta) en tu dispositivo Android."
+      "custom": "Este modo te permite personalizar la instalación de OmniEmu. Configura relaciones de aspecto, bordes, filtros, RetroAchievements, emuladores, frontends y más. Recomendado para usuarios avanzados.",
+      "android": "Instala OmniEmu (beta) en tu dispositivo Android."
     },
     "CheckBios": {
       "detected": "- Detectado",
@@ -418,7 +418,7 @@
     "CloudSync": {
       "sync": "Sincronizar",
       "backup": "Copia de seguridad",
-      "syncDesc": "Sincroniza entre instalaciones de EmuDeck - <strong> Solo para Patrons</strong>",
+      "syncDesc": "Sincroniza entre instalaciones de OmniEmu - <strong> Solo para Patrons</strong>",
       "backupDesc": "Haz una copia de seguridad de tus juegos en la nube"
     },
     "ControllerLayout": {
@@ -454,7 +454,7 @@
       "modalSuccessTitle": "Nombre de usuario o contraseña incorrectos",
       "modalSuccessDesc": "Si tu contraseña contiene caracteres especiales como _ o ' necesitas cambiarla en retroachievements.org",
       "modalErrorTitle": "¡Error!",
-      "modalErrorDesc": "El usuario y la contraseña son correctos pero EmuDeck no pudo configurar la conexión.",
+      "modalErrorDesc": "El usuario y la contraseña son correctos pero OmniEmu no pudo configurar la conexión.",
       "register": "Si no tienes una cuenta, regístrate ahora:",
       "success": "¡Te has conectado con éxito a RetroAchievements!",
       "reset": "Restablecer Inicio de Sesión"

@@ -199,8 +199,8 @@
     "webpack-merge": "^5.10.0"
   },
   "build": {
-    "productName": "EmuDeck",
-    "appId": "org.emudeck.com",
+    "productName": "OmniEmu",
+    "appId": "com.omniaemu.app",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
@@ -218,7 +218,7 @@
         ]
       },
       "type": "distribution",
-      "hardenedRuntime": true,
+      "hardenedRuntime": false,
       "entitlements": "assets/entitlements.mac.plist",
       "entitlementsInherit": "assets/entitlements.mac.plist",
       "gatekeeperAssess": false

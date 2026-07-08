@@ -203,7 +203,7 @@ function WelcomePage() {
 
       {second && (
         <>
-          <Header title="EmuDeck News" />
+          <Header title="OmniEmu News" />
           <Main>
             <div className="cards cards--maxi">
               {news &&

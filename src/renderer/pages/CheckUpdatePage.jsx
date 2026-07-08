@@ -340,7 +340,7 @@ function CheckUpdatePage() {
             header: <span className="h4">🎉 Updating! 🎉</span>,
             body: (
               <p className="h5">
-                EmuDeck will restart as soon as it finishes the update. Hold on
+                OmniEmu will restart as soon as it finishes the update. Hold on
                 tight.
               </p>
             ),
@@ -427,7 +427,7 @@ function CheckUpdatePage() {
             header: <span className="h4">🎉 Updating! 🎉</span>,
             body: (
               <p className="h5">
-                EmuDeck will restart as soon as it finishes the update. Hold on
+                OmniEmu will restart as soon as it finishes the update. Hold on
                 tight.
               </p>
             ),
@@ -485,7 +485,7 @@ function CheckUpdatePage() {
         active: true,
         header: (
           <span className="h4">
-            Building EmuDeck backend and running autodiagnostics in the
+            Building OmniEmu backend and running autodiagnostics in the
             background...
           </span>
         ),
@@ -548,7 +548,7 @@ function CheckUpdatePage() {
                 body: (
                   <p>
                     There seems to be an issue building the backend. Please
-                    restart EmuDeck if this screen doesn't dissapear in about 5
+                    restart OmniEmu if this screen doesn't dissapear in about 5
                     seconds
                   </p>
                 ),
@@ -599,7 +599,7 @@ function CheckUpdatePage() {
                 body: (
                   <p>
                     There's been an issue building the backend, please restart
-                    EmuDeck if this screen doesn't dissapear in about 5 seconds.
+                    OmniEmu if this screen doesn't dissapear in about 5 seconds.
                   </p>
                 ),
                 footer: '',
@@ -641,7 +641,7 @@ function CheckUpdatePage() {
   return (
     <Wrapper css="wrapper__full" aside={false}>
       <Kamek />
-      <Header title="EmuDeck is loading..." />
+      <Header title="OmniEmu is loading..." />
       <EmuModal modal={modal} />
     </Wrapper>
   );

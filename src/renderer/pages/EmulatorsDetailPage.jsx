@@ -206,7 +206,7 @@ function EmulatorsDetailPage() {
           modalBody = (
             <p>
               Yuzu Early Access has been installed, you can play games as
-              always. EmuDeck will detect you have Yuzu EA and use that
+              always. OmniEmu will detect you have Yuzu EA and use that
               instead.You don't need to do setup anything else.
             </p>
           );
@@ -873,7 +873,7 @@ function EmulatorsDetailPage() {
             also include frequent updates and performance improvements.
           </p>
           <p>
-            EmuDeck will migrate your saves and your configurations (yes your
+            OmniEmu will migrate your saves and your configurations (yes your
             per-game configurations too), so you can continue playing right
             away.
           </p>

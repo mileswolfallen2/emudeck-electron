@@ -171,7 +171,7 @@ function PatreonLoginPage() {
                 gamemode: version[1],
               });
               alert(
-                "No patreon detected, you can use EmuDeck but you won't get new updates"
+                "No patreon detected, you can use OmniEmu but you won't get new updates"
               );
               setState({
                 ...state,
@@ -230,7 +230,7 @@ function PatreonLoginPage() {
       });
     } else if (accessAllowed === 'cancel') {
       const updateOrLogin = confirm(
-        'Please log back in to Patreon to keep EmuDeck updated. Press OK to log in again or Cancel to continue with no updates'
+        'Please log back in to Patreon to keep OmniEmu updated. Press OK to log in again or Cancel to continue with no updates'
       );
       if (!updateOrLogin) {
         const settingsStorage = JSON.parse(

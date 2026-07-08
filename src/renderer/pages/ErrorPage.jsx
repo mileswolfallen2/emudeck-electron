@@ -9,7 +9,7 @@ const { t, i18n } = useTranslation();
     <Wrapper>
       <Header title="Not connected 😢" />
       <p className="lead">Ooops, it seems you don't have internet connection</p>
-      <p>An active internet connection is needed to install EmuDeck</p>
+      <p>An active internet connection is needed to install OmniEmu</p>
     </Wrapper>
   );
 }

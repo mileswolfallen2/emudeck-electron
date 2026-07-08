@@ -511,7 +511,7 @@ function RomStoragePage() {
         nextText={t('general.next')}
         disabledNext={disabledNext}
         disabledBack={disabledBack}
-        comments="If you need to change your ROM directory later, you can use the exclusive <strong>EmuDeck Migration Tool.</strong>"
+        comments="If you need to change your ROM directory later, you can use the exclusive <strong>OmniEmu Migration Tool.</strong>"
       />
       <EmuModal modal={modal} />
     </Wrapper>

@@ -1,12 +1,12 @@
 [
   {
-    "title": "EmuDeck Compressor",
-    "description": "Fixed an issue where EmuDeck Compresor couldn't be launched from the EmuDeck app",
+    "title": "OmniEmu Compressor",
+    "description": "Fixed an issue where OmniEmu Compresor couldn't be launched from the OmniEmu app",
     "image": "false"
   },
   {
-    "title": "EmuDeck Start Menu links",
-    "description": "The EmuDeck app will restart explorer.exe to reset the Start Menu cache that prevented the EmuDeck icons to be shown",
+    "title": "OmniEmu Start Menu links",
+    "description": "The OmniEmu app will restart explorer.exe to reset the Start Menu cache that prevented the OmniEmu icons to be shown",
     "image": "false"
   },
   {

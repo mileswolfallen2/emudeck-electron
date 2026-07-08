@@ -66,7 +66,7 @@ function FrontendSelectorPage() {
     <Wrapper css="wrapper__full">
       <Header title="Pick your level of integration" />
       <p class="lead">
-        EmuDeck can integrate into your system in different levels
+        OmniEmu can integrate into your system in different levels
       </p>
       <Main>
         <div className="selector-menu ">

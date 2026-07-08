@@ -2,7 +2,7 @@
   {
     "title": "Mac support!",
     "type": "STEAMOS",
-    "description": "We are launching the first proof of concept EmuDeck build for MacOS, only RetroArch systems are available in this release.",
+    "description": "We are launching the first proof of concept OmniEmu build for MacOS, only RetroArch systems are available in this release.",
     "image": "false"
   }
 ]

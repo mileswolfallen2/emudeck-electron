@@ -5,7 +5,7 @@
     "code": "RetroArch",
 
     "description": "",
-    "special_configuration": "Custom textures for the NES and N64 using EmuDeck's pre-created folder: Emulation/hdpacks",
+    "special_configuration": "Custom textures for the NES and N64 using OmniEmu's pre-created folder: Emulation/hdpacks",
     "bios": ["ps1", "segacd", "saturn", "nds", "dreamcast"],
     "systems": [
       "Retro Game Systems, including but not limited to, Nintendo 64, Saturn and Dreamcast"
@@ -41,7 +41,7 @@
     "code": "Cemu",
 
     "description": "Cemu is a Nintendo Wii U emulator, developed by Exzap and Petergov. That's right, you can emulate Breath of the Wild on the Steam Deck with Cemu.",
-    "special_configuration": "BIOS: No additional BIOS are required, keys are required for encrypted ROMs. Hotkeys: EmuDeck's Steam Input profile is required for hotkeys. Place your Wii U ROMs here: Emulation/roms/wiiu/roms.",
+    "special_configuration": "BIOS: No additional BIOS are required, keys are required for encrypted ROMs. Hotkeys: OmniEmu's Steam Input profile is required for hotkeys. Place your Wii U ROMs here: Emulation/roms/wiiu/roms.",
     "bios": [],
     "systems": "Nintendo Wii U",
     "hotkeys": {
@@ -144,7 +144,7 @@
     "code": "melonDS",
 
     "description": "melonDS is a Nintendo DS Emulator, originally developed by Arisotura. Close the lid when you're finished playing.",
-    "special_configuration": "BIOS: BIOS are optional. Hotkeys: EmuDeck's Steam Input profile is required for hotkeys.",
+    "special_configuration": "BIOS: BIOS are optional. Hotkeys: OmniEmu's Steam Input profile is required for hotkeys.",
     "bios": ["nds"],
     "systems": "Nintendo DS",
     "hotkeys": {
@@ -317,7 +317,7 @@
     "code": "MAME",
 
     "description": "MAME is a Multiple Arcade Machine Emulator, originally developed by Nicola Salmoria. Invite a friend over, and re-live the arcade days over a match of 1943 or Bubble Bobble.",
-    "special_configuration": "BIOS: BIOS are required for some MAME ROMs. Ideally use ROMS that are the same version as MAME's version. MAME often releases improved versions of ROMS to improve compatibility. EmuDeck currently supports the current versions:<br/>MAME (Standalone) and MAME (Current), MAME 2010, MAME 2003, as RetroArch Cores.",
+    "special_configuration": "BIOS: BIOS are required for some MAME ROMs. Ideally use ROMS that are the same version as MAME's version. MAME often releases improved versions of ROMS to improve compatibility. OmniEmu currently supports the current versions:<br/>MAME (Standalone) and MAME (Current), MAME 2010, MAME 2003, as RetroArch Cores.",
     "bios": [],
     "systems": "Arcade",
     "hotkeys": {
@@ -390,7 +390,7 @@
     "code": "mGBA",
 
     "description": "mGBA is a GameBoy, Gameboy Color, and Gameboy Advance emulator, originally developed by endrift. No link cable included.",
-    "special_configuration": "BIOS: No additional BIOS are required. Hotkeys: EmuDeck's Steam Input profile is required for hotkeys.",
+    "special_configuration": "BIOS: No additional BIOS are required. Hotkeys: OmniEmu's Steam Input profile is required for hotkeys.",
     "bios": [],
     "systems": "GameBoy Advance",
     "hotkeys": {
@@ -404,7 +404,7 @@
     "code": "SRM",
 
     "description": "Add your ROMS and emulators to your Steam Library.",
-    "special_configuration": "Steam ROM Manager is pre-configured by EmuDeck. Each parser generally corresponds to an emulator or tool. Enable your preferred parsers, generate and save an app list, and start playing right away in Game Mode<br/>Parsers are created dynamically based in your selection when installing EmuDeck.",
+    "special_configuration": "Steam ROM Manager is pre-configured by OmniEmu. Each parser generally corresponds to an emulator or tool. Enable your preferred parsers, generate and save an app list, and start playing right away in Game Mode<br/>Parsers are created dynamically based in your selection when installing OmniEmu.",
     "bios": [],
     "systems": ""
   },

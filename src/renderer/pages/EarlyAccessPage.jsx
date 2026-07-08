@@ -57,7 +57,7 @@ function EarlyAccessPage() {
                 src="https://c10.patreonusercontent.com/4/patreon-media/p/reward/8681416/3c5aa559e51c41f89b0fe48ea1e01318/eyJ3Ijo0MDB9/2.png?token-time=2145916800&token-hash=wMOmBQQnP02K1L6iOHDX0mLF9p0cbzuePcQVLlNSF2I%3D"
                 alt="Keep up the Work"
               />
-              <span className="h4">EmuDeck Fan</span>
+              <span className="h4">OmniEmu Fan</span>
               <span className="h5">10€/{t('general.month')}</span>
               <BtnSimple
                 css="btn-simple--2"
