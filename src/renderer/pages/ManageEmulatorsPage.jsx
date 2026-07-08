@@ -364,23 +364,14 @@ function ManageEmulatorsPage() {
               {installEmusArray.map((item) => {
                 const img = images[item.id];
                 const updateNotif = updates[item.id];
+
                 if (system === 'win32') {
-                  if (item.id === 'rmg') {
+                  if (item.id === 'srm') {
                     return;
                   }
-                }
-
-                if (item.id === 'srm') {
-                  return;
-                }
-
-                if (item.id === 'ares') {
-                  return;
-                }
-
-                if (device === 'Mac') {
-                  const macBlocklist = ['cemu','primehack','ryujinx','xemu','xenia','vita3k','azahar','model2','supermodel','shadps4','citron'];
-                  if (macBlocklist.includes(item.id)) {
+                } else {
+                  const macCompatible = ['ra','dolphin','rpcs3','duckstation','pcsx2','ppsspp','mgba','flycast','mame'];
+                  if (!macCompatible.includes(item.id)) {
                     return;
                   }
                 }
@@ -426,9 +417,9 @@ function ManageEmulatorsPage() {
                   return;
                 }
 
-                if (device === 'Mac') {
-                  const macBlocklist = ['pegasus'];
-                  if (macBlocklist.includes(item.id)) {
+                if (system !== 'win32') {
+                  const macCompatibleFrontends = ['esde'];
+                  if (!macCompatibleFrontends.includes(item.id)) {
                     return;
                   }
                 }

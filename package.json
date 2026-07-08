@@ -50,7 +50,9 @@
     "build:windows": "npm run build && npm exec electron-builder -- --publish never --win",
     "build:linux": "npm run build && npm exec electron-builder -- --publish never --linux",
     "build:mac": "npm run build && npm exec electron-builder -- --publish never --mac",
-    "build:x64": "npm run build && npm exec electron-builder -- --publish never --linux --x64 && npm exec electron-builder -- --publish never --win --x64"
+    "build:x64": "npm run build && npm exec electron-builder -- --publish never --linux --x64 && npm exec electron-builder -- --publish never --win --x64",
+    "build:all-x64": "npm run build && npm exec electron-builder -- --publish never --mac --x64 --win --x64 --linux --x64",
+    "build:all-arm64": "npm run build && npm exec electron-builder -- --publish never --mac --arm64 --win --arm64 --linux --arm64"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

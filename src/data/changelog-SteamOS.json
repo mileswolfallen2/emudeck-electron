@@ -1,7 +1,7 @@
 [
   {
-    "title": "RetroAchievements",
-    "description": "Use of RetroAchievements new API and added support for Dolphin",
+    "title": "macOS Port",
+    "description": "EmuDeck now runs on macOS! 9 emulators supported: RetroArch, Dolphin, RPCS3, DuckStation, PCSX2, PPSSPP, mGBA, Flycast, and MAME. System detection set to Unix for a clean native experience.",
     "image": "false"
   }
 ]
